@@ -5,7 +5,8 @@ A full-stack prototype for building node-based AI workflows. The frontend provid
 ## Features
 
 - Drag-and-drop workflow editor built with ReactFlow
-- Custom node types for inputs, text prompts, LLM steps, and outputs
+- Config-driven node abstraction for quickly adding new node types
+- Custom node types for inputs, text prompts, LLM steps, outputs, API calls, filters, transforms, conditions, and merges
 - Connectable nodes with animated edges
 - Global pipeline state managed with Zustand
 - FastAPI backend scaffold with a health check and pipeline parsing endpoint
