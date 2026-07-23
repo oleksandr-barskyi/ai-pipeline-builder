@@ -1,0 +1,6 @@
+.idea/
+.DS_Store
+node_modules/
+frontend/build/
+__pycache__/
+*.pyc
