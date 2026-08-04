@@ -63,3 +63,13 @@
 textarea.base-node__control {
   resize: vertical;
 }
+
+.base-node--text {
+  transition: width 120ms ease;
+}
+
+textarea.base-node__control.text-node__textarea {
+  line-height: 18px;
+  overflow: hidden;
+  resize: none;
+}
