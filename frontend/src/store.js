@@ -1,5 +1,3 @@
-// store.js
-
 import { create } from "zustand";
 import {
     addEdge,
@@ -11,6 +9,7 @@ import {
 export const useStore = create((set, get) => ({
     nodes: [],
     edges: [],
+    nodeIDs: {},
     getNodeID: (type) => {
         const newIDs = {...get().nodeIDs};
         if (newIDs[type] === undefined) {
@@ -37,16 +36,29 @@ export const useStore = create((set, get) => ({
     },
     onConnect: (connection) => {
       set({
-        edges: addEdge({...connection, type: 'smoothstep', animated: true, markerEnd: {type: MarkerType.Arrow, height: '20px', width: '20px'}}, get().edges),
+        edges: addEdge(
+          {
+            ...connection,
+            type: 'smoothstep',
+            animated: true,
+            style: { stroke: '#6366f1', strokeWidth: 2 },
+            markerEnd: {
+              type: MarkerType.Arrow,
+              height: '20px',
+              width: '20px',
+              color: '#6366f1',
+            },
+          },
+          get().edges
+        ),
       });
     },
     updateNodeField: (nodeId, fieldName, fieldValue) => {
       set({
         nodes: get().nodes.map((node) => {
           if (node.id === nodeId) {
-            node.data = { ...node.data, [fieldName]: fieldValue };
+            return { ...node, data: { ...node.data, [fieldName]: fieldValue } };
           }
-  
           return node;
         }),
       });
