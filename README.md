@@ -5,11 +5,14 @@ A full-stack prototype for building node-based AI workflows. The frontend provid
 ## Features
 
 - Drag-and-drop workflow editor built with ReactFlow
-- Config-driven node abstraction for quickly adding new node types
+- Config-driven node abstraction (BaseNode + node factory) for quickly adding new node types
 - Custom node types for inputs, text prompts, LLM steps, outputs, API calls, filters, transforms, conditions, and merges
+- VectorShift-inspired design: branded toolbar, per-category node icons and accent colors, styled handles, selection states
+- Text node with auto-resizing textarea and dynamic `{{variable}}` input handles
 - Connectable nodes with animated edges
 - Global pipeline state managed with Zustand
-- FastAPI backend scaffold with a health check and pipeline parsing endpoint
+- Submit flow that sends the pipeline to the backend and shows node/edge counts and DAG validity in a styled result modal
+- FastAPI backend with a health check, pipeline parsing endpoint (Kahn's algorithm DAG check), and pytest coverage
 
 ## Tech Stack
 
@@ -89,7 +92,14 @@ GET /
 Pipeline parser endpoint:
 
 ```text
-GET /pipelines/parse
+POST /pipelines/parse
+```
+
+Backend tests:
+
+```bash
+pip install pytest httpx
+python -m pytest backend
 ```
 
 ## Available Frontend Scripts
@@ -104,4 +114,4 @@ npm run build
 
 ## Current Status
 
-This project is an early prototype. The visual editor supports creating and connecting workflow nodes, and the backend currently provides a minimal parsing endpoint that can be extended with validation logic.
+All four parts of the assessment are complete: the reusable node abstraction with five extra demo nodes, the unified VectorShift-style design, the dynamic Text node behavior, and the frontend/backend integration with DAG validation surfaced in a result modal. The backend logic is covered by pytest.
