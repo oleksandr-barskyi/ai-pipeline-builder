@@ -20,7 +20,7 @@ export const OutputNode = createConfigurableNode({
       defaultValue: 'Text',
       options: [
         { value: 'Text', label: 'Text' },
-        { value: 'File', label: 'Image' },
+        { value: 'Image', label: 'Image' },
       ],
     },
   ],

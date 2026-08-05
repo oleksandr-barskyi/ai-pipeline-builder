@@ -104,6 +104,7 @@ const getHandleTop = (index, totalHandles) => `${((index + 1) * 100) / (totalHan
 
 export const TextNode = ({ id, data }) => {
   const updateNodeField = useStore((state) => state.updateNodeField);
+  const pruneNodeTargetEdges = useStore((state) => state.pruneNodeTargetEdges);
   const updateNodeInternals = useUpdateNodeInternals();
   const [text, setText] = useState(data?.text ?? DEFAULT_TEXT);
   const variables = useMemo(() => extractVariables(text), [text]);
@@ -111,8 +112,19 @@ export const TextNode = ({ id, data }) => {
   const variableKey = variables.join('|');
 
   useEffect(() => {
+    const validHandleIds = variableKey
+      ? variableKey.split('|').map((variable) => `${id}-var-${variable}`)
+      : [];
+    pruneNodeTargetEdges(id, validHandleIds);
     updateNodeInternals(id);
-  }, [id, updateNodeInternals, variableKey, size.width, size.textareaHeight]);
+  }, [
+    id,
+    pruneNodeTargetEdges,
+    updateNodeInternals,
+    variableKey,
+    size.width,
+    size.textareaHeight,
+  ]);
 
   const handleChange = (event) => {
     const nextText = event.target.value;
@@ -121,16 +133,13 @@ export const TextNode = ({ id, data }) => {
   };
 
   return (
-    <div
-      className="base-node base-node--text"
-      style={{ width: size.width, '--node-accent': '#6366f1' }}
-    >
+    <div className="base-node base-node--text" style={{ width: size.width }}>
       {variables.map((variable, index) => (
         <Handle
           key={variable}
           type="target"
           position={Position.Left}
-          id={`${id}-${variable}`}
+          id={`${id}-var-${variable}`}
           style={{ top: getHandleTop(index, variables.length) }}
         />
       ))}

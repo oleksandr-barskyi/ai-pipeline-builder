@@ -121,6 +121,7 @@ textarea {
   width: 22px;
   height: 22px;
   border-radius: 999px;
+  background: #eef0fb;
   background: color-mix(in srgb, var(--node-accent) 14%, #ffffff);
   color: var(--node-accent);
 }
@@ -132,8 +133,11 @@ textarea {
 }
 
 .draggable-node:hover {
+  border-color: #c7cbec;
   border-color: color-mix(in srgb, var(--node-accent) 45%, #e2e5f4);
+  background: #fafaff;
   background: color-mix(in srgb, var(--node-accent) 5%, #ffffff);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.22);
   box-shadow: 0 6px 16px color-mix(in srgb, var(--node-accent) 22%, transparent);
   transform: translateY(-1px);
 }
@@ -186,6 +190,11 @@ textarea {
 
 .react-flow__edge-path {
   stroke: #6366f1;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #312e81 !important;
+  stroke-width: 2.5 !important;
 }
 
 .react-flow__connection-path {

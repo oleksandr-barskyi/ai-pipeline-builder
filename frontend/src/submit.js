@@ -30,7 +30,10 @@ export const SubmitButton = () => {
             });
 
             if (!response.ok) {
-                throw new Error(`Pipeline parse failed with status ${response.status}`);
+                setError(
+                    `The backend responded with status ${response.status}. Check the FastAPI server logs and try again.`
+                );
+                return;
             }
 
             const { num_nodes, num_edges, is_dag } = await response.json();

@@ -21,6 +21,9 @@
 .react-flow__node.selected .base-node {
   border-color: var(--node-accent);
   box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.25),
+    0 10px 26px rgba(30, 27, 75, 0.14);
+  box-shadow:
     0 0 0 3px color-mix(in srgb, var(--node-accent) 25%, transparent),
     0 10px 26px rgba(30, 27, 75, 0.14);
 }
@@ -41,6 +44,7 @@
   width: 24px;
   height: 24px;
   border-radius: 7px;
+  background: #eef0fb;
   background: color-mix(in srgb, var(--node-accent) 13%, #ffffff);
   color: var(--node-accent);
 }
@@ -155,5 +159,6 @@ textarea.base-node__control.text-node__textarea {
 .base-node--text .react-flow__handle:hover {
   width: 14px;
   height: 14px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.22);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--node-accent) 22%, transparent);
 }

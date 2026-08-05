@@ -44,12 +44,20 @@ export const useStore = create((set, get) => ({
             style: { stroke: '#6366f1', strokeWidth: 2 },
             markerEnd: {
               type: MarkerType.Arrow,
-              height: '20px',
-              width: '20px',
+              height: 20,
+              width: 20,
               color: '#6366f1',
             },
           },
           get().edges
+        ),
+      });
+    },
+    pruneNodeTargetEdges: (nodeId, validHandleIds) => {
+      set({
+        edges: get().edges.filter(
+          (edge) =>
+            edge.target !== nodeId || validHandleIds.includes(edge.targetHandle)
         ),
       });
     },

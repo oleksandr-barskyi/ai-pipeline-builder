@@ -80,15 +80,3 @@ export const MergeIcon = () => (
     <path d="M17 9l3 3-3 3" />
   </svg>
 );
-
-export const nodeIcons = {
-  customInput: InputIcon,
-  llm: LlmIcon,
-  customOutput: OutputIcon,
-  text: TextIcon,
-  api: ApiIcon,
-  filter: FilterIcon,
-  transform: TransformIcon,
-  condition: ConditionIcon,
-  merge: MergeIcon,
-};
