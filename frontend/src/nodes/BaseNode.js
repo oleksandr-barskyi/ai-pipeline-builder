@@ -30,6 +30,8 @@ export const BaseNode = ({
   data,
   title,
   subtitle,
+  icon: Icon,
+  accent = '#6366f1',
   handles = [],
   fields = [],
   children,
@@ -83,9 +85,14 @@ export const BaseNode = ({
   };
 
   return (
-    <div className="base-node">
+    <div className="base-node" style={{ '--node-accent': accent }}>
       {handles.map((handle) => renderHandle(id, handle))}
       <div className="base-node__header">
+        {Icon ? (
+          <span className="base-node__icon">
+            <Icon />
+          </span>
+        ) : null}
         <span className="base-node__title">{title}</span>
         {subtitle ? <span className="base-node__subtitle">{subtitle}</span> : null}
       </div>

@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { InputIcon } from './icons';
 
 export const InputNode = createConfigurableNode({
   title: 'Input',
   subtitle: 'source',
+  icon: InputIcon,
+  accent: '#10b981',
   fields: [
     {
       name: 'inputName',

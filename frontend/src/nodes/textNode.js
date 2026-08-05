@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Handle, Position, useUpdateNodeInternals } from 'reactflow';
 import { useStore } from '../store';
+import { TextIcon } from './icons';
 import './baseNode.css';
 
 const DEFAULT_TEXT = '{{input}}';
@@ -120,7 +121,10 @@ export const TextNode = ({ id, data }) => {
   };
 
   return (
-    <div className="base-node base-node--text" style={{ width: size.width }}>
+    <div
+      className="base-node base-node--text"
+      style={{ width: size.width, '--node-accent': '#6366f1' }}
+    >
       {variables.map((variable, index) => (
         <Handle
           key={variable}
@@ -132,6 +136,9 @@ export const TextNode = ({ id, data }) => {
       ))}
       <Handle type="source" position={Position.Right} id={`${id}-output`} />
       <div className="base-node__header">
+        <span className="base-node__icon">
+          <TextIcon />
+        </span>
         <span className="base-node__title">Text</span>
         <span className="base-node__subtitle">prompt</span>
       </div>

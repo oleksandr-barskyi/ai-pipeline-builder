@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { OutputIcon } from './icons';
 
 export const OutputNode = createConfigurableNode({
   title: 'Output',
   subtitle: 'result',
+  icon: OutputIcon,
+  accent: '#f43f5e',
   fields: [
     {
       name: 'outputName',

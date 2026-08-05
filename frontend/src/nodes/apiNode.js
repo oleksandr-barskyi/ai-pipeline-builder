@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { ApiIcon } from './icons';
 
 export const ApiNode = createConfigurableNode({
   title: 'API',
   subtitle: 'request',
+  icon: ApiIcon,
+  accent: '#0ea5e9',
   fields: [
     {
       name: 'method',

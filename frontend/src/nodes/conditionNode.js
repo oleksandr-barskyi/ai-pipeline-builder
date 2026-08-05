@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { ConditionIcon } from './icons';
 
 export const ConditionNode = createConfigurableNode({
   title: 'Condition',
   subtitle: 'logic',
+  icon: ConditionIcon,
+  accent: '#fb923c',
   fields: [
     {
       name: 'expression',

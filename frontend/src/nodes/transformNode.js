@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { TransformIcon } from './icons';
 
 export const TransformNode = createConfigurableNode({
   title: 'Transform',
   subtitle: 'data',
+  icon: TransformIcon,
+  accent: '#14b8a6',
   fields: [
     {
       name: 'operation',

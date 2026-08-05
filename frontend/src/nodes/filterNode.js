@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { FilterIcon } from './icons';
 
 export const FilterNode = createConfigurableNode({
   title: 'Filter',
   subtitle: 'branch',
+  icon: FilterIcon,
+  accent: '#f59e0b',
   fields: [
     {
       name: 'field',

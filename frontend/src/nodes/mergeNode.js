@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { MergeIcon } from './icons';
 
 export const MergeNode = createConfigurableNode({
   title: 'Merge',
   subtitle: 'combine',
+  icon: MergeIcon,
+  accent: '#d946ef',
   fields: [
     {
       name: 'mergeMode',

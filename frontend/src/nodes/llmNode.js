@@ -1,9 +1,12 @@
 import { Position } from 'reactflow';
 import { createConfigurableNode } from './nodeFactory';
+import { LlmIcon } from './icons';
 
 export const LLMNode = createConfigurableNode({
   title: 'LLM',
   subtitle: 'model',
+  icon: LlmIcon,
+  accent: '#8b5cf6',
   fields: [
     {
       name: 'model',
